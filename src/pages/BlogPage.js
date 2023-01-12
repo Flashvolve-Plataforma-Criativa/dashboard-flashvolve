@@ -21,7 +21,7 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard: Blog | Minimal UI </title>
+        <title> Dashboard: Blog | Flashvolve </title>
       </Helmet>
 
       <Container>
@@ -30,7 +30,7 @@ export default function BlogPage() {
             Blog
           </Typography>
           <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New Post
+            Novo Post
           </Button>
         </Stack>
 

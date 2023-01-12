@@ -26,63 +26,63 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard | Minimal UI </title>
+        <title> Dashboard | Flashvolve </title>
       </Helmet>
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back
+        Bem-vindo
         </Typography>
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary title="Vidas" total={714000} icon={'ic:baseline-group'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
+            <AppWidgetSummary title="Faturamento Último Trimestre" total={1352831} color="info" icon={'ic:baseline-assessment'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
+            <AppWidgetSummary title="Faturamento Atual" total={1723315} color="warning" icon={'ic:baseline-auto-graph'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="Empresas" total={234} color="error" icon={'ic:baseline-supervised-user-circle'} />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
-              title="Website Visits"
-              subheader="(+43%) than last year"
+              title="Faturamento por produto"
+              subheader="(+43%) que o último ano"
               chartLabels={[
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-                '07/01/2003',
-                '08/01/2003',
-                '09/01/2003',
-                '10/01/2003',
-                '11/01/2003',
+                '01/01/2023',
+                '02/01/2023',
+                '03/01/2023',
+                '04/01/2023',
+                '05/01/2023',
+                '06/01/2023',
+                '07/01/2023',
+                '08/01/2023',
+                '09/01/2023',
+                '10/01/2023',
+                '11/01/2023',
               ]}
               chartData={[
                 {
-                  name: 'Team A',
+                  name: 'Comunicação',
                   type: 'column',
                   fill: 'solid',
                   data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
                 },
                 {
-                  name: 'Team B',
+                  name: 'Saúde & Segurança',
                   type: 'area',
                   fill: 'gradient',
                   data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
                 },
                 {
-                  name: 'Team C',
+                  name: 'Social',
                   type: 'line',
                   fill: 'solid',
                   data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
@@ -93,12 +93,12 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
-              title="Current Visits"
+              title="Produtos"
               chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
+                { label: 'Social', value: 4344 },
+                { label: 'Comunicação', value: 5435 },
+                { label: 'Saúde & Segurança', value: 1443 },
+                { label: 'Automação Criativa', value: 4443 },
               ]}
               chartColors={[
                 theme.palette.primary.main,
@@ -111,31 +111,31 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
-              title="Conversion Rates"
-              subheader="(+43%) than last year"
+              title="Usuários por Cliente"
+              subheader="(+43%) que o último ano"
               chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
+                { label: 'Vale', value: 400 },
+                { label: 'GPA', value: 430 },
+                { label: 'Santander', value: 448 },
+                { label: 'Safra', value: 470 },
+                { label: 'Dasa', value: 540 },
+                { label: 'BRQ', value: 580 },
+                { label: 'Fleury', value: 690 },
+                { label: 'CBMM', value: 1100 },
+                { label: 'Hypera', value: 1200 },
+                { label: 'GFT', value: 1380 },
               ]}
             />
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject
-              title="Current Subject"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
+              title="Faturamento por Trimestre"
+              chartLabels={['Comunicação', 'Saúde & Segurança', 'Automação Criativa', 'Social', 'Pagamentos', 'Vendas Preditivas']}
               chartData={[
-                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
+                { name: '1º Tri', data: [80, 50, 30, 40, 100, 20] },
+                { name: '2º Tri', data: [20, 30, 40, 80, 20, 80] },
+                { name: '3º Tri', data: [44, 76, 78, 13, 43, 10] },
               ]}
               chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />
@@ -143,7 +143,7 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
-              title="News Update"
+              title="Últimas atualizações"
               list={[...Array(5)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: faker.name.jobTitle(),
@@ -156,7 +156,7 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppOrderTimeline
-              title="Order Timeline"
+              title="Últimas vendas"
               list={[...Array(5)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: [
@@ -174,7 +174,7 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppTrafficBySite
-              title="Traffic by Site"
+              title="Tráfego no Site"
               list={[
                 {
                   name: 'FaceBook',
@@ -202,13 +202,14 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppTasks
-              title="Tasks"
+              title="Tarefas"
               list={[
                 { id: '1', label: 'Create FireStone Logo' },
                 { id: '2', label: 'Add SCSS and JS files if required' },
                 { id: '3', label: 'Stakeholder Meeting' },
                 { id: '4', label: 'Scoping & Estimations' },
                 { id: '5', label: 'Sprint Showcase' },
+                { id: '6', label: 'Sprint Showcase' },
               ]}
             />
           </Grid>

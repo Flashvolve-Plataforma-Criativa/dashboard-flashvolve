@@ -46,7 +46,7 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login | Minimal UI </title>
+        <title> Login | Flashvolve </title>
       </Helmet>
 
       <StyledRoot>
@@ -61,7 +61,7 @@ export default function LoginPage() {
         {mdUp && (
           <StyledSection>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Hi, Welcome Back
+              Bem-vindo!
             </Typography>
             <img src="/assets/illustrations/illustration_login.png" alt="login" />
           </StyledSection>
@@ -70,12 +70,12 @@ export default function LoginPage() {
         <Container maxWidth="sm">
           <StyledContent>
             <Typography variant="h4" gutterBottom>
-              Sign in to Minimal
+              Dashboard Flashvolve
             </Typography>
 
             <Typography variant="body2" sx={{ mb: 5 }}>
-              Don’t have an account? {''}
-              <Link variant="subtitle2">Get started</Link>
+              Ainda não possui uma conta? {''}
+              <Link variant="subtitle2">Crie uma conta</Link>
             </Typography>
 
             <Stack direction="row" spacing={2}>
@@ -94,7 +94,7 @@ export default function LoginPage() {
 
             <Divider sx={{ my: 3 }}>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                OR
+                Ou
               </Typography>
             </Divider>
 

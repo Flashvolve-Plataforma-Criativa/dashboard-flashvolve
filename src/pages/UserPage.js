@@ -34,10 +34,10 @@ import USERLIST from '../_mock/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
-  { id: 'isVerified', label: 'Verified', alignRight: false },
+  { id: 'name', label: 'Nome', alignRight: false },
+  { id: 'company', label: 'Empresa', alignRight: false },
+  { id: 'role', label: 'Cargo', alignRight: false },
+  { id: 'isVerified', label: 'Verificado', alignRight: false },
   { id: 'status', label: 'Status', alignRight: false },
   { id: '' },
 ];
@@ -149,16 +149,16 @@ export default function UserPage() {
   return (
     <>
       <Helmet>
-        <title> User | Minimal UI </title>
+        <title> Usuários | Flashvolve </title>
       </Helmet>
 
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            User
+            Usuários
           </Typography>
           <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New User
+            Novo Usuário
           </Button>
         </Stack>
 
@@ -232,13 +232,13 @@ export default function UserPage() {
                           }}
                         >
                           <Typography variant="h6" paragraph>
-                            Not found
+                            Sem Resultados
                           </Typography>
 
                           <Typography variant="body2">
-                            No results found for &nbsp;
+                            Nenhum resultado para &nbsp;
                             <strong>&quot;{filterName}&quot;</strong>.
-                            <br /> Try checking for typos or using complete words.
+                            <br /> Tente conferir as palavra digitada
                           </Typography>
                         </Paper>
                       </TableCell>
@@ -281,12 +281,12 @@ export default function UserPage() {
       >
         <MenuItem>
           <Iconify icon={'eva:edit-fill'} sx={{ mr: 2 }} />
-          Edit
+          Editar
         </MenuItem>
 
         <MenuItem sx={{ color: 'error.main' }}>
           <Iconify icon={'eva:trash-2-outline'} sx={{ mr: 2 }} />
-          Delete
+          Deletar
         </MenuItem>
       </Popover>
     </>

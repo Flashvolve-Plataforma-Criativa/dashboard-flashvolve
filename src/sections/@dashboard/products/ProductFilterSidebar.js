@@ -23,18 +23,18 @@ import { ColorMultiPicker } from '../../../components/color-utils';
 // ----------------------------------------------------------------------
 
 export const SORT_BY_OPTIONS = [
-  { value: 'featured', label: 'Featured' },
-  { value: 'newest', label: 'Newest' },
-  { value: 'priceDesc', label: 'Price: High-Low' },
-  { value: 'priceAsc', label: 'Price: Low-High' },
+  { value: 'featured', label: 'Destaques' },
+  { value: 'newest', label: 'Recentes' },
+  { value: 'priceDesc', label: 'Preço: Maior-Menor' },
+  { value: 'priceAsc', label: 'Preço: Menor-Maior' },
 ];
-export const FILTER_GENDER_OPTIONS = ['Men', 'Women', 'Kids'];
-export const FILTER_CATEGORY_OPTIONS = ['All', 'Shose', 'Apparel', 'Accessories'];
+export const FILTER_GENDER_OPTIONS = ['Homens', 'Mulheres', 'Crianças'];
+export const FILTER_CATEGORY_OPTIONS = ['Todos', 'Sapatos', 'Vestuário', 'Acessorios'];
 export const FILTER_RATING_OPTIONS = ['up4Star', 'up3Star', 'up2Star', 'up1Star'];
 export const FILTER_PRICE_OPTIONS = [
-  { value: 'below', label: 'Below $25' },
-  { value: 'between', label: 'Between $25 - $75' },
-  { value: 'above', label: 'Above $75' },
+  { value: 'below', label: 'Menor que $25' },
+  { value: 'between', label: 'Entre $25 - $75' },
+  { value: 'above', label: 'Maior que $75' },
 ];
 export const FILTER_COLOR_OPTIONS = [
   '#00AB55',
@@ -72,7 +72,7 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ px: 1, py: 2 }}>
           <Typography variant="subtitle1" sx={{ ml: 1 }}>
-            Filters
+            Filtros
           </Typography>
           <IconButton onClick={onCloseFilter}>
             <Iconify icon="eva:close-fill" />
@@ -85,7 +85,7 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
           <Stack spacing={3} sx={{ p: 3 }}>
             <div>
               <Typography variant="subtitle1" gutterBottom>
-                Gender
+                Gênero
               </Typography>
               <FormGroup>
                 {FILTER_GENDER_OPTIONS.map((item) => (
@@ -96,7 +96,7 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
 
             <div>
               <Typography variant="subtitle1" gutterBottom>
-                Category
+                Categoria
               </Typography>
               <RadioGroup>
                 {FILTER_CATEGORY_OPTIONS.map((item) => (
@@ -107,7 +107,7 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
 
             <div>
               <Typography variant="subtitle1" gutterBottom>
-                Colors
+                Cores
               </Typography>
               <ColorMultiPicker
                 name="colors"
@@ -120,7 +120,7 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
 
             <div>
               <Typography variant="subtitle1" gutterBottom>
-                Price
+                Preço
               </Typography>
               <RadioGroup>
                 {FILTER_PRICE_OPTIONS.map((item) => (
@@ -131,7 +131,7 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
 
             <div>
               <Typography variant="subtitle1" gutterBottom>
-                Rating
+                Avaliação
               </Typography>
               <RadioGroup>
                 {FILTER_RATING_OPTIONS.map((item, index) => (
@@ -171,7 +171,7 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
             variant="outlined"
             startIcon={<Iconify icon="ic:round-clear-all" />}
           >
-            Clear All
+            Limpar filtros
           </Button>
         </Box>
       </Drawer>
