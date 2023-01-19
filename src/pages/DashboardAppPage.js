@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+
 import { Helmet } from 'react-helmet-async';
 import { faker } from '@faker-js/faker';
 // @mui
@@ -5,6 +7,10 @@ import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
 // components
 import Iconify from '../components/iconify';
+// services
+import getAllLivesQt from '../services/getAllLivesQt';
+import getAllCompanysQt from '../services/getAllCompanysQt';
+import getFinancialData from '../services/getFinancialData';
 // sections
 import {
   AppTasks,
@@ -22,6 +28,22 @@ import {
 
 export default function DashboardAppPage() {
   const theme = useTheme();
+  const [lives, setLives] = useState();
+  const [companys, setCompanys] = useState();
+  const [currentBilling, setCurrentBilling] = useState();
+
+  useEffect(() => {
+    async function fetchData() {
+      const allLivesQt = await getAllLivesQt();
+      const AllCompanysQt = await getAllCompanysQt();
+      const currentBilling = await getFinancialData();
+
+      setLives(allLivesQt);
+      setCompanys(AllCompanysQt);
+      setCurrentBilling(currentBilling.financeiro_Valor);
+    }
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -31,12 +53,12 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-        Bem-vindo
+          Bem-vindo
         </Typography>
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Vidas" total={714000} icon={'ic:baseline-group'} />
+            <AppWidgetSummary title="Vidas" total={lives} icon={'ic:baseline-group'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
@@ -44,11 +66,11 @@ export default function DashboardAppPage() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Faturamento Atual" total={1723315} color="warning" icon={'ic:baseline-auto-graph'} />
+            <AppWidgetSummary title="Faturamento Atual" total={currentBilling} color="warning" icon={'ic:baseline-auto-graph'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Empresas" total={234} color="error" icon={'ic:baseline-supervised-user-circle'} />
+            <AppWidgetSummary title="Empresas" total={companys} color="error" icon={'ic:baseline-supervised-user-circle'} />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
