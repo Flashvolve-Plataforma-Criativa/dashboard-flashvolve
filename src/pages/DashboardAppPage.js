@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import React, { useEffect, useState } from 'react';
 
 import { Helmet } from 'react-helmet-async';
@@ -8,7 +9,9 @@ import { Grid, Container, Typography } from '@mui/material';
 // components
 import Iconify from '../components/iconify';
 // services
+import findLastTrimester from '../functions/findLastTrimester';
 import getAllLivesQt from '../services/getAllLivesQt';
+import getUsers from '../services/getUsers';
 import getAllCompanysQt from '../services/getAllCompanysQt';
 import getFinancialData from '../services/getFinancialData';
 // sections
@@ -31,16 +34,56 @@ export default function DashboardAppPage() {
   const [lives, setLives] = useState();
   const [companys, setCompanys] = useState();
   const [currentBilling, setCurrentBilling] = useState();
+  const [lastTrimesterBilling, setLastTrimesterBilling] = useState();
+  const [users, setUsers] = useState({
+    Vale: 0,
+    GPA: 0,
+    Santander: 0,
+    Safra: 0,
+    Dasa: 0,
+    BRQ: 0,
+    Fleury: 0,
+    CBMM: 0,
+    Hypera: 0,
+    GFT: 0
+  });
+
+  async function getCompanyUsers() {
+    const companiesArray = [
+      'Vale',
+      'GPA',
+      'Santander',
+      'Safra',
+      'Dasa',
+      'BRQ',
+      'Fleury',
+      'CBMM',
+      'Hypera',
+      'GFT'];
+
+    const obj = {};
+
+    for (let i = 0; i < companiesArray.length; i += 1) {
+      const companiesUsers = (await getUsers(companiesArray[i])).quantidade;
+      obj[companiesArray[i]] = companiesUsers;
+    }
+
+    setUsers(obj);
+  }
 
   useEffect(() => {
     async function fetchData() {
       const allLivesQt = await getAllLivesQt();
       const AllCompanysQt = await getAllCompanysQt();
       const currentBilling = await getFinancialData();
+      const lastTrimesterBilling = await findLastTrimester();
+
+      await getCompanyUsers();
 
       setLives(allLivesQt);
       setCompanys(AllCompanysQt);
-      setCurrentBilling(currentBilling.financeiro_Valor);
+      setCurrentBilling(currentBilling.total_biling.financeiro_Valor);
+      setLastTrimesterBilling(lastTrimesterBilling);
     }
     fetchData();
   }, []);
@@ -62,7 +105,7 @@ export default function DashboardAppPage() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Faturamento Último Trimestre" total={1352831} color="info" icon={'ic:baseline-assessment'} />
+            <AppWidgetSummary title="Faturamento Último Trimestre" total={lastTrimesterBilling} color="info" icon={'ic:baseline-assessment'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
@@ -134,18 +177,18 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
               title="Usuários por Cliente"
-              subheader="(+43%) que o último ano"
+              // subheader="(+43%) que o último ano"
               chartData={[
-                { label: 'Vale', value: 400 },
-                { label: 'GPA', value: 430 },
-                { label: 'Santander', value: 448 },
-                { label: 'Safra', value: 470 },
-                { label: 'Dasa', value: 540 },
-                { label: 'BRQ', value: 580 },
-                { label: 'Fleury', value: 690 },
-                { label: 'CBMM', value: 1100 },
-                { label: 'Hypera', value: 1200 },
-                { label: 'GFT', value: 1380 },
+                { label: 'Vale', value: users.Vale },
+                { label: 'GPA', value: users.GPA },
+                { label: 'Santander', value: users.Santander },
+                { label: 'Safra', value: users.Safra },
+                { label: 'Dasa', value: users.Dasa },
+                { label: 'BRQ', value: users.BRQ },
+                { label: 'Fleury', value: users.Fleury },
+                { label: 'CBMM', value: users.CBMM },
+                { label: 'Hypera', value: users.Hypera },
+                { label: 'GFT', value: users.GFT },
               ]}
             />
           </Grid>
