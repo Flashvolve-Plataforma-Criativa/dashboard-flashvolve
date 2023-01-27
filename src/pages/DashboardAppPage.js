@@ -135,12 +135,6 @@ export default function DashboardAppPage() {
               ]}
               chartData={[
                 {
-                  name: 'Comunicação',
-                  type: 'column',
-                  fill: 'solid',
-                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
-                },
-                {
                   name: 'Saúde & Segurança',
                   type: 'area',
                   fill: 'gradient',
@@ -152,6 +146,12 @@ export default function DashboardAppPage() {
                   fill: 'solid',
                   data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
                 },
+                {
+                  name: 'Comunicação',
+                  type: 'column',
+                  fill: 'solid',
+                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
+                }
               ]}
             />
           </Grid>
@@ -255,7 +255,7 @@ export default function DashboardAppPage() {
                   name: 'Linkedin',
                   value: 411213,
                   icon: <Iconify icon={'eva:linkedin-fill'} color="#006097" width={32} />,
-                },
+                                                                                                                             },
                 {
                   name: 'Twitter',
                   value: 443232,
@@ -283,3 +283,4 @@ export default function DashboardAppPage() {
     </>
   );
 }
+                                         
