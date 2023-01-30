@@ -1,6 +1,6 @@
 import getBillingPerProduct from '../services/GetBillingPerProduct';
 
-export default async function findLastTrimester() {
+export default async function findDataOfBilling() {
     const billingPerProductData = await getBillingPerProduct();
     const productNames = billingPerProductData.map((item) => item.produto);
     //
