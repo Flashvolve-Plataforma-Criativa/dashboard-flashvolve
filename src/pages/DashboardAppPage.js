@@ -14,6 +14,7 @@ import getAllLivesQt from '../services/getAllLivesQt';
 import getUsers from '../services/getUsers';
 import getAllCompanysQt from '../services/getAllCompanysQt';
 import getFinancialData from '../services/getFinancialData';
+import filterDataOfBiling from '../functions/filterDataOfBiling';
 // sections
 import {
   AppTasks,
@@ -26,7 +27,6 @@ import {
   AppCurrentSubject,
   AppConversionRates,
 } from '../sections/@dashboard/app';
-
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
@@ -47,6 +47,8 @@ export default function DashboardAppPage() {
     Hypera: 0,
     GFT: 0
   });
+  // const [billingPerProduct, setBillingPerProduct] = useState();
+  // const [filteredProducts, setFilteredProducts] = useState();
 
   async function getCompanyUsers() {
     const companiesArray = [
@@ -84,6 +86,10 @@ export default function DashboardAppPage() {
       setCompanys(AllCompanysQt);
       setCurrentBilling(currentBilling.total_biling.financeiro_Valor);
       setLastTrimesterBilling(lastTrimesterBilling);
+      filterDataOfBiling();
+      
+      // setBillingPerProduct(billingPerProductData);
+      // setFilteredProducts(filtered);
     }
     fetchData();
   }, []);
@@ -119,7 +125,7 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
               title="Faturamento por produto"
-              subheader="(+43%) que o último ano"
+              // subheader="(+43%) que o último ano"
               chartLabels={[
                 '01/01/2023',
                 '02/01/2023',
