@@ -19,9 +19,13 @@ export default async function findLastTrimester() {
         arrayOfTrimesterMonths.push(lastTrimester + i);
     }
 
+    const currentYear = currentDate.getFullYear();
+
     const lastTrimesterMonths = currentBilling.campaign_date.map((date) => {
-        if (arrayOfTrimesterMonths.includes(Number(date.mes_referencia))) {
-            return date.Valor
+        if (Number(date.mes_ano_referencia.split('/')[1]) === currentYear &&
+            arrayOfTrimesterMonths.includes(Number(date.mes_ano_referencia.split('/')[0]))) {
+
+            return date.valor
         }
     })
 

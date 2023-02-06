@@ -89,7 +89,7 @@ export default function DashboardAppPage() {
 
       setLives(allLivesQt);
       setCompanys(AllCompanysQt);
-      setCurrentBilling(currentBilling.total_biling.financeiro_Valor);
+      setCurrentBilling(currentBilling.total_billing.financeiro_valor);
       setLastTrimesterBilling(lastTrimesterBilling);
 
       const filtered = await filterDataOfBiling();

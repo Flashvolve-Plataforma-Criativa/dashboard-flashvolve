@@ -9,7 +9,7 @@ const navConfig = [
   {
     title: 'Form',
     path: '/dashboard/form',
-    icon: icon('ic_analytics'),
+    icon: icon('ic_form'),
   },
   {
     title: 'Dashboard',
